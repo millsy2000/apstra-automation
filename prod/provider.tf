@@ -5,7 +5,7 @@ terraform {
     }
   }
   cloud {
-   organization = "sean_personal_org" 
+   organization = "sean_personal_org"
     workspaces {
      name = "apstra-prod"
     }

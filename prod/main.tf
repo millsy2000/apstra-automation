@@ -1,4 +1,4 @@
-module "prod {
+module prod {
 
 source = "../modules/"
 

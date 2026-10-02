@@ -3,12 +3,12 @@ terraform {
     apstra = {
       source = "Juniper/apstra"
     }
-  cloud {
-   organization = "sean_personal_org" 
-    workspaces {
-     name = "apstra-dev"
-    }
   }
+  cloud {
+   organization = "sean_personal_org"
+    workspaces {
+     name = "apstra-prod"
+    }
   }
 }
 
