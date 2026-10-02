@@ -4,11 +4,22 @@ terraform {
       source = "Juniper/apstra"
     }
   }
+  cloud {
+   organization = "sean_personal_org" 
+    workspaces {
+     name = "apstra-prod"
+    }
+  }
+}
+
+variable "apstra_password" {
+sensitive = true
 }
 
 provider "apstra" {
   # URL and credentials can be supplied using the "url" parameter in this file.
   url = "https://admin@apstra-03b20175-67d1-4ae4-811f-6a062e592dac.aws.apstra.com/"
+  password = var.apstra_password
   #
   # ...or using the environment variable APSTRA_URL.
   #
