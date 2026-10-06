@@ -9,7 +9,7 @@ module "blueprint" {
 module "finance" {
   source          = "../../modules/tenant"
   blueprint_id    = module.blueprint.blueprint_id
-  tenant_name     = "FINANCE"
+  tenant_name     = "FINANCE-TEST"
   app_vlan        = 100
   app_vni         = 10100
   subnet          = "192.168.20.0/24"
