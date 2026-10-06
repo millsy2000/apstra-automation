@@ -3,6 +3,7 @@
 module "blueprint" {
   source         = "../../modules/blueprint"
   blueprint_name = var.blueprint_name
+  environment    = var.environment
 }
 
 module "finance" {

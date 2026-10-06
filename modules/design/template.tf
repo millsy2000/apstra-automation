@@ -1,7 +1,7 @@
 # Create a template using previously looked-up (data) spine info and previously
 # created (resource) rack types.
 resource "apstra_template_rack_based" "rack_template" {
-  name                     = "apstra_junos"
+  name                     = "apstra_junos-${var.environment}"
   asn_allocation_scheme    = "unique"
   overlay_control_protocol = "evpn"
   spine = {

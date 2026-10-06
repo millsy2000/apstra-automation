@@ -1,5 +1,6 @@
 module "design" {
-  source = "../design"
+  source      = "../design"
+  environment = var.environment
 }
 
 resource "apstra_datacenter_blueprint" "blueprint" {

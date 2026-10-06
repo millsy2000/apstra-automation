@@ -21,7 +21,7 @@ data "apstra_design_logical_device" "terraform_servers" {
 }
 
 resource "apstra_rack_type" "terraform_single" {
-  name                       = "apstra-single-${var.environment}"
+  name                       = "single-${var.environment}"
   fabric_connectivity_design = "l3clos"
   leaf_switches = {
     apstra-single = {
@@ -36,7 +36,7 @@ resource "apstra_rack_type" "terraform_single" {
       logical_device_id = data.apstra_design_logical_device.terraform_servers["single_homed"].id
       links = {
         single-link = {
-          target_switch_name = "apstra-single-${var.environment}"
+          target_switch_name = "apstra-single"
           links_per_switch   = 1
           speed              = "10G"
         }
@@ -46,7 +46,7 @@ resource "apstra_rack_type" "terraform_single" {
 }
 
 resource "apstra_rack_type" "terraform_esi" {
-  name                       = "apstra-esi-${var.environment}"
+  name                       = "esi-${var.environment}"
   fabric_connectivity_design = "l3clos"
   leaf_switches = {
     apstra-esi = {
@@ -62,7 +62,7 @@ resource "apstra_rack_type" "terraform_esi" {
       logical_device_id = data.apstra_design_logical_device.terraform_servers["dual_homed"].id
       links = {
         single-link = {
-          target_switch_name = "apstra-esi-${var.environment}"
+          target_switch_name = "apstra-esi"
           links_per_switch   = 1
           speed              = "10G"
           lag_mode           = "lacp_active"
@@ -74,7 +74,7 @@ resource "apstra_rack_type" "terraform_esi" {
       logical_device_id = data.apstra_design_logical_device.terraform_servers["single_homed"].id
       links = {
         single-link = {
-          target_switch_name = "apstra-esi-${var.environment}"
+          target_switch_name = "apstra-esi"
           links_per_switch   = 1
           speed              = "10G"
           switch_peer        = "first"
@@ -86,7 +86,7 @@ resource "apstra_rack_type" "terraform_esi" {
       logical_device_id = data.apstra_design_logical_device.terraform_servers["single_homed"].id
       links = {
         single-link = {
-          target_switch_name = "apstra-esi-${var.environment}"
+          target_switch_name = "apstra-esi"
           links_per_switch   = 1
           speed              = "10G"
           switch_peer        = "second"
