@@ -6,7 +6,7 @@ on:
 jobs:
 
   validate:
-
+    environment: dev
     runs-on: ubuntu-latest
 
     defaults:
