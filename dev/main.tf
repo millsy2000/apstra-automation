@@ -1,5 +1,0 @@
-module dev {
-
-source = "../modules/"
-
-}
