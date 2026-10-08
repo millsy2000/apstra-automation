@@ -41,3 +41,15 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
+        
+      - name: Terraform Apply
+        run: terraform apply -auto-approve tfplan
+
+      - name: Install Python Dependencies
+        run: |
+           python -m pip install requests
+
+      - name: Validate Apstra Blueprint
+        run: |
+           python ../../scripts/apstra_blueprint_validation.py
+
