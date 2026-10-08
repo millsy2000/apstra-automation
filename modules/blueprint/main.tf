@@ -13,7 +13,7 @@ resource "apstra_datacenter_resource_pool_allocation" "fabric_asn" {
   for_each     = local.asn_roles
   blueprint_id = apstra_datacenter_blueprint.blueprint.id
   role         = each.key
-  pool_ids     = ["${var.environment}-vpod-evpn-asn-pool"]
+  pool_ids     = [var.asn_pool]
 }
 
 locals { ipv4_roles = toset(["spine_loopback_ips", "leaf_loopback_ips", "spine_leaf_link_ips"]) }
@@ -21,7 +21,7 @@ resource "apstra_datacenter_resource_pool_allocation" "fabric_ipv4" {
   for_each     = local.ipv4_roles
   blueprint_id = apstra_datacenter_blueprint.blueprint.id
   role         = each.key
-  pool_ids     = ["${var.environment}-apstra-pool"]
+  pool_ids     = [var.ipv4_pool]
 }
 
 data "apstra_interface_map" "lab_interface_map" {
@@ -46,4 +46,10 @@ resource "apstra_datacenter_device_allocation" "leafs" {
   device_key               = each.value
   system_attributes = { deploy_mode = "deploy"
   tags = ["leaf"] }
+}
+
+resource "apstra_datacenter_resource_pool_allocation" "evpn_l3_vnis" {
+  blueprint_id = apstra_datacenter_blueprint.blueprint.id
+  pool_ids = [var.evpn_pool]
+  role     = "evpn_l3_vnis"
 }

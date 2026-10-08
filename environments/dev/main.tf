@@ -3,6 +3,10 @@ module "blueprint" {
   source         = "../../modules/blueprint"
   blueprint_name = var.blueprint_name
   environment    = var.environment
+  ipv4_pool      = apstra_ipv4_pool.dev_ipv4_pool.id
+  asn_pool       = apstra_asn_pool.dev_asn_pool.id
+  evpn_pool      = apstra_vni_pool.dev_evpn_pool.id
+
   switches        = {
     spines = {
       spine1 = "525400AAD295" // 172.20.169.11
@@ -15,7 +19,6 @@ module "blueprint" {
     }
   }
 }
-
 
 module "finance" {
   source          = "../../modules/tenant"

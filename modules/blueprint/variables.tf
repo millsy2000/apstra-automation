@@ -10,3 +10,15 @@ variable "environment" {
 variable "switches" {
   type = map
 }
+
+variable "asn_pool" {
+  type = string
+}
+
+variable "ipv4_pool" {
+  type = string
+}
+
+variable "evpn_pool" {
+  type = string
+}
