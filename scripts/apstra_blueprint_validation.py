@@ -45,61 +45,69 @@ def login():
         verify=VERIFY_SSL,
         timeout=30,
     )
-
     response.raise_for_status()
-
     token = response.json().get("token")
-
     if not token:
         fail("Authentication succeeded but no token returned")
-
     return token
 
 
 def get_anomalies(token, blueprint_id):
-
     headers = {
         "AUTHTOKEN": token
     }
-
     response = requests.get(
         f"{APSTRA_URL}/api/blueprints/{blueprint_id}/anomalies",
         headers=headers,
         verify=VERIFY_SSL,
         timeout=30,
     )
-
     response.raise_for_status()
-
     return response.json()
 
 
 def validate_anomalies(anomalies):
-
     critical = []
-
     for anomaly in anomalies:
-
         severity = anomaly.get("severity", "").lower()
-
         if severity in ["critical", "error"]:
             critical.append(anomaly)
-
     if critical:
-
         print("\nCritical anomalies found:\n")
-
         for item in critical:
-
             print(
                 f"- {item.get('severity')}: "
                 f"{item.get('description')}"
             )
-
         sys.exit(1)
-
     print("No critical anomalies detected")
 
+def validate_anomalies_new(anomalies_response):
+    anomalies = anomalies_response.get("items", [])
+    critical = [
+        a for a in anomalies
+        if a.get("severity", "").lower() == "critical"
+    ]
+    if critical:
+        print(
+            f"\nFound {len(critical)} critical anomaly(s)\n"
+        )
+        for anomaly in critical:
+            print("=" * 60)
+            print(
+                f"Type: {anomaly.get('anomaly_type')}"
+            )
+            print(
+                f"Node: {anomaly.get('anomalous_node_id')}"
+            )
+            print(
+                f"Expected: {anomaly.get('expected')}"
+            )
+            print(
+                f"Actual: {anomaly.get('actual')}"
+            )
+        sys.exit(1)
+    print("No critical anomalies detected")
 
 def main():
 
@@ -123,7 +131,7 @@ def main():
         blueprint_id,
     )
 
-    validate_anomalies(anomalies)
+    validate_anomalies_new(anomalies)
 
     print("Blueprint validation passed")
 
