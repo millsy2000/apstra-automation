@@ -16,7 +16,7 @@ jobs:
         working-directory: environments/prod
 
     env:
-      APSTRA_PASS: ${{ secrets.APSTRA_PASSWORD }}
+      APSTRA_PASS: ${{ secrets.APSTRA_PASS }}
 
     steps:
 
