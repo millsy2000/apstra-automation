@@ -6,3 +6,7 @@ variable "blueprint_name" {
 variable "environment" {
   type = string
 }
+
+variable "switches" {
+  type = map
+}

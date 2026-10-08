@@ -6,3 +6,5 @@ dev/.terraform/environment
 dev/.terraform/providers/
 prod/.terraform/environment
 prod/.terraform/providers/
+terraform.exe
+*.terraform/providers/*
