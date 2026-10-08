@@ -26,7 +26,7 @@ module "finance" {
   tenant_name     = "FIN-TEST"
   app_vlan        = 100
   app_vni         = 10100
-  subnet          = "192.168.20.0/24"
-  virtual_gateway = "192.168.20.1"
+  subnet          = "192.168.21.0/24"
+  virtual_gateway = "192.168.21.1"
 }
 
