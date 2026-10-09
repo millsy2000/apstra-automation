@@ -17,6 +17,8 @@ jobs:
 
     env:
       APSTRA_PASS: ${{ secrets.APSTRA_PASS }}
+      APSTRA_USER: ${{ vars.APSTRA_USER }}
+      APSTRA_URL: ${{ vars.APSTRA_URL }}
 
     steps:
 
@@ -42,7 +44,7 @@ jobs:
 
       - name: Wait for Apstra Analysis
         run: sleep 120
-        
+  
       - name: Install Python Dependencies
         run: |
            python -m pip install requests
