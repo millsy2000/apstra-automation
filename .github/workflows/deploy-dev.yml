@@ -21,6 +21,7 @@ jobs:
       APSTRA_PASS: ${{ secrets.APSTRA_PASS }}
       APSTRA_USER: ${{ vars.APSTRA_USER }}
       APSTRA_URL: ${{ vars.APSTRA_URL }}
+      TENANTS_PATH: ${{ vars.TENANTS_PATH }}
 
     steps:
 
