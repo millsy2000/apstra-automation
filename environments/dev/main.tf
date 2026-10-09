@@ -24,28 +24,36 @@ module "finance" {
   source          = "../../modules/tenant"
   blueprint_id    = module.blueprint.blueprint_id
   tenant_name     = "FIN-TEST"
-  app_vlan        = 100
-  app_vni         = 10100
-  subnet          = "192.168.21.0/24"
-  virtual_gateway = "192.168.21.1"
+  networks = [
+    {
+    name            = "finance-1"
+    app_vlan        = 100
+    app_vni         = 10100
+    subnet          = "192.168.21.0/24"
+    virtual_gateway = "192.168.21.1"
+    }
+  ]
 }
 
 module "HR" {
   source          = "../../modules/tenant"
   blueprint_id    = module.blueprint.blueprint_id
   tenant_name     = "HR"
-  app_vlan        = 200
-  app_vni         = 10200
-  subnet          = "192.168.22.0/24"
-  virtual_gateway = "192.168.22.1"
+  networks = [
+  {
+    name            = "HR-1"
+    app_vlan        = 200
+    app_vni         = 10200
+    subnet          = "192.168.22.0/24"
+    virtual_gateway = "192.168.22.1"
+  },
+  {
+    name            = "HR-2"
+    app_vlan        = 300
+    app_vni         = 10300
+    subnet          = "192.168.23.0/24"
+    virtual_gateway = "192.168.23.1"
+  }
+]
 }
 
-module "HR-1" {
-  source          = "../../modules/tenant"
-  blueprint_id    = module.blueprint.blueprint_id
-  tenant_name     = "HR"
-  app_vlan        = 300
-  app_vni         = 10300
-  subnet          = "192.168.23.0/24"
-  virtual_gateway = "192.168.23.1"
-}
