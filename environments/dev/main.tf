@@ -20,40 +20,59 @@ module "blueprint" {
   }
 }
 
-module "finance" {
-  source          = "../../modules/tenant"
-  blueprint_id    = module.blueprint.blueprint_id
-  tenant_name     = "FIN-TEST"
-  networks = [
-    {
-    name            = "finance-1"
-    app_vlan        = 100
-    app_vni         = 10100
-    subnet          = "192.168.21.0/24"
-    virtual_gateway = "192.168.21.1"
-    }
-  ]
+locals {
+  # Load the full YAML file as a map
+  tenants = yamldecode(file("tenants/tenants.yaml"))
 }
 
-module "HR" {
+module "tenant" {
+  for_each        =  {
+        for tenant in local.tenants.tenants:
+          tenant.tenant_name => tenant
+  }
   source          = "../../modules/tenant"
   blueprint_id    = module.blueprint.blueprint_id
-  tenant_name     = "HR"
-  networks = [
-  {
-    name            = "HR-1"
-    app_vlan        = 200
-    app_vni         = 10200
-    subnet          = "192.168.22.0/24"
-    virtual_gateway = "192.168.22.1"
-  },
-  {
-    name            = "HR-2"
-    app_vlan        = 300
-    app_vni         = 10300
-    subnet          = "192.168.23.0/24"
-    virtual_gateway = "192.168.23.1"
-  }
-]
+
+  networks = each.value.networks
+  tenant_name = each.value.tenant_name
 }
+
+
+
+#module "finance" {
+#  source          = "../../modules/tenant"
+#  blueprint_id    = module.blueprint.blueprint_id
+#  tenant_name     = "FIN-TEST"
+#  networks = [
+#    {
+#    name            = "finance-1"
+#    app_vlan        = 100
+#    app_vni         = 10100
+#    subnet          = "192.168.21.0/24"
+#    virtual_gateway = "192.168.21.1"
+#    }
+#  ]
+#}
+#
+#module "HR" {
+#  source          = "../../modules/tenant"
+#  blueprint_id    = module.blueprint.blueprint_id
+#  tenant_name     = "HR"
+#  networks = [
+#  {
+#    name            = "HR-1"
+#    app_vlan        = 200
+#    app_vni         = 10200
+#    subnet          = "192.168.22.0/24"
+#    virtual_gateway = "192.168.22.1"
+#  },
+#  {
+#    name            = "HR-2"
+#    app_vlan        = 300
+#    app_vni         = 10300
+#    subnet          = "192.168.23.0/24"
+#    virtual_gateway = "192.168.23.1"
+#  }
+#]
+#}
 

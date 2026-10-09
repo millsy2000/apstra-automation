@@ -1,0 +1,17 @@
+vlan:
+  minimum: 100
+  maximum: 999
+
+vni:
+  minimum: 10000
+  maximum: 19999
+
+subnet:
+  allowed_prefixes:
+    - 24
+
+tenant_name:
+  regex: "^[A-Z0-9_]+$"
+
+network_name:
+  regex: "^[A-Z0-9_]+$"

@@ -1,0 +1,29 @@
+tenants:
+
+  - tenant_name: FINANCE
+    networks:
+      - name: APP
+        app_vlan: 100
+        app_vni: 10100
+        subnet: 10.100.100.0/24
+        virtual_gateway: 10.100.100.1
+    
+      - name: DB
+        app_vlan: 101
+        app_vni: 10101
+        subnet: 10.100.101.0/24
+        virtual_gateway: 10.100.101.1
+
+  - tenant_name: HR
+    networks:
+      - name: APP
+        app_vlan: 200
+        app_vni: 10200
+        subnet: 10.100.200.0/24
+        virtual_gateway: 10.100.200.1
+    
+      - name: DB
+        app_vlan: 101
+        app_vni: 10101
+        subnet: 10.100.201.0/24
+        virtual_gateway: 10.100.201.1
