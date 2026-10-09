@@ -4,10 +4,11 @@ import ipaddress
 import re
 import sys
 import yaml
+import os
 
 
 POLICY_FILE = "policies/network-standards.yaml"
-TENANTS_FILE = "environments/dev/tenants.yaml"
+TENANTS_FILE = os.environ.get("TENANTS_PATH")
 
 
 def fail(errors):
