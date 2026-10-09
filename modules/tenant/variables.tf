@@ -6,18 +6,22 @@ variable "tenant_name" {
   type = string
 }
 
-variable "app_vlan" {
-  type = number
-}
+#variable "app_vlan" {
+#  type = number
+#}
+#
+#variable "app_vni" {
+#  type = number
+#}
+#
+#variable "subnet" {
+#  type = string
+#}
+#
+#variable "virtual_gateway" {
+#  type = string
+#}
 
-variable "app_vni" {
-  type = number
-}
-
-variable "subnet" {
-  type = string
-}
-
-variable "virtual_gateway" {
-  type = string
+variable "networks" {
+  type = list
 }
