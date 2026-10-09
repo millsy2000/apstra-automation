@@ -39,3 +39,13 @@ module "HR" {
   subnet          = "192.168.22.0/24"
   virtual_gateway = "192.168.22.1"
 }
+
+module "HR-1" {
+  source          = "../../modules/tenant"
+  blueprint_id    = module.blueprint.blueprint_id
+  tenant_name     = "HR"
+  app_vlan        = 300
+  app_vni         = 10300
+  subnet          = "192.168.23.0/24"
+  virtual_gateway = "192.168.23.1"
+}
