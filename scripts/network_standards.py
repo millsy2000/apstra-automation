@@ -7,8 +7,8 @@ import yaml
 import os
 
 
-POLICY_FILE = "policies/network-standards.yaml"
-TENANTS_FILE = os.environ.get("TENANTS_PATH")
+POLICY_FILE = "../../policies/network-standards.yaml"
+TENANTS_FILE = "tenants.yaml"
 
 
 def fail(errors):
