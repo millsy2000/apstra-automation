@@ -15,6 +15,7 @@ jobs:
 
     env:
       APSTRA_PASS: ${{ secrets.APSTRA_PASS }}
+      TENANTS_PATH: ${{ vars.TENANTS_PATH }}
 
     steps:
 
