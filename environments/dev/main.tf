@@ -22,7 +22,7 @@ module "blueprint" {
 
 locals {
   # Load the full YAML file as a map
-  tenants = yamldecode(file("tenants/tenants.yaml"))
+  tenants = yamldecode(file("tenants.yaml"))
 }
 
 module "tenant" {
