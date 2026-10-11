@@ -23,7 +23,7 @@ tenants:
         virtual_gateway: 10.100.200.1
     
       - name: DB
-        app_vlan: 101
-        app_vni: 10101
+        app_vlan: 201
+        app_vni: 10201
         subnet: 10.100.201.0/24
         virtual_gateway: 10.100.201.1
