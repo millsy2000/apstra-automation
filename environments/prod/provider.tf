@@ -14,7 +14,7 @@ terraform {
 
 provider "apstra" {
   # URL and credentials can be supplied using the "url" parameter in this file.
-  url = "https://admin@apstra-3cef78ee-f3fc-4cad-801e-5ade807481ee.aws.apstra.com"
+  url = "https://admin@apstra-a254d9c7-8587-4b31-978b-81e5d83be739.aws.apstra.com/"
   #
   # ...or using the environment variable APSTRA_URL.
   #
