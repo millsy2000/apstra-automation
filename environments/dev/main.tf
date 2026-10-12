@@ -13,9 +13,9 @@ module "blueprint" {
       spine2 = "52540015A413" // 172.20.13.12
     }
     leafs = {
-      apstra_esi_001_leaf1    = "525400630E34" // 172.20.13.13
-      apstra_esi_001_leaf2    = "525400C8F581" // 172.20.13.15
-      apstra_single_001_leaf1 = "525400F8E66D" // 172.20.13.14
+      esi_dev_001_leaf1    = "525400630E34" // 172.20.13.13
+      esi_dev_001_leaf2    = "525400C8F581" // 172.20.13.15
+      single_dev_001_leaf1 = "525400F8E66D" // 172.20.13.14
     }
   }
 }
