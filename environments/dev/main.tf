@@ -9,13 +9,13 @@ module "blueprint" {
 
   switches        = {
     spines = {
-      spine1 = "525400AAD295" // 172.20.169.11
-      spine2 = "5254005ED453" // 172.20.169.12
+      spine1 = "5254005A94A2" // 172.20.13.11
+      spine2 = "52540015A413" // 172.20.13.12
     }
     leafs = {
-      apstra_esi_001_leaf1    = "525400C6A020" // 172.20.169.13
-      apstra_esi_001_leaf2    = "5254001675CC" // 172.20.169.15
-      apstra_single_001_leaf1 = "525400DA9B72" // 172.20.169.14
+      apstra_esi_001_leaf1    = "525400630E34" // 172.20.13.13
+      apstra_esi_001_leaf2    = "525400C8F581" // 172.20.13.15
+      apstra_single_001_leaf1 = "525400F8E66D" // 172.20.13.14
     }
   }
 }
