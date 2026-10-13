@@ -13,7 +13,7 @@ resource "apstra_datacenter_virtual_network" "vn" {
 # 1. Define the Connectivity Template using the Interface-type block
 resource "apstra_datacenter_connectivity_template_interface" "connectivity_template" {
   blueprint_id = var.blueprint_id
-  name         = "single-${var.network_name}"
+  name         = "single-${var.tenant_name}-${var.network_name}"
   description  = "Connectivity Template for single Virtual Network endpoint access"
 
   # Map of 'Virtual Network (Single)' Primitives

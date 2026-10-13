@@ -6,6 +6,10 @@ variable "network_name" {
   type = string
 }
 
+variable "tenant_name" {
+  type = string
+}
+
 variable "vlan_id" {
   type = number
 }

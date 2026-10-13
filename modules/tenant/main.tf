@@ -11,6 +11,7 @@ module "app_network" {
   }
 
   source = "../virtual-network"
+  tenant_name = var.tenant_name
   blueprint_id = var.blueprint_id
   routing_zone_id = module.vrf.routing_zone_id
   network_name = each.value.name
