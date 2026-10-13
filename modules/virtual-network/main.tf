@@ -14,7 +14,7 @@ data "apstra_datacenter_virtual_network_binding_constructor" "leaf_switches" {
 
 resource "apstra_datacenter_virtual_network" "vn" {
   blueprint_id                 = var.blueprint_id
-  name                         = var.network_name
+  name                         = "${var.tenant_name}-${var.network_name}"
   type                         = "vxlan"
   vni                          = var.vni
   routing_zone_id              = var.routing_zone_id
