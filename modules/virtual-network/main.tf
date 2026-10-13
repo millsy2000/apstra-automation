@@ -40,3 +40,16 @@ resource "apstra_datacenter_connectivity_template_interface" "connectivity_templ
     }
   }
 }
+
+data "apstra_datacenter_interfaces_by_link_tag" "server_ports" {
+  blueprint_id = var.blueprint_id
+  system_type  = "switch" // optional
+  system_role  = "leaf"   // optional
+  tags         = ["servers"]
+}
+
+resource "apstra_datacenter_connectivity_template_assignments" "endpoint_attachment_tag" {
+  blueprint_id              = var.blueprint_id
+  application_point_ids      = data.apstra_datacenter_interfaces_by_link_tag.server_ports.ids
+  connectivity_template_id = apstra_datacenter_connectivity_template_interface.connectivity_template.id
+}
