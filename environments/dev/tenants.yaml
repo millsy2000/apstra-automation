@@ -1,6 +1,7 @@
 tenants:
 
   - tenant_name: FINANCE
+    loopbacks : 4.0.3.0/24
     networks:
       - name: APP
         app_vlan: 100
@@ -15,6 +16,7 @@ tenants:
         virtual_gateway: 10.100.101.1
 
   - tenant_name: HR
+    loopbacks : 4.0.4.0/24
     networks:
       - name: APP
         app_vlan: 200

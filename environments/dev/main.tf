@@ -35,6 +35,7 @@ module "tenant" {
 
   networks = each.value.networks
   tenant_name = each.value.tenant_name
+  loopbacks = each.value.loopbacks
 }
 
 

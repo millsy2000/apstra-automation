@@ -19,4 +19,5 @@ module "app_network" {
   vni = each.value.app_vni
   subnet = each.value.subnet
   virtual_gateway = each.value.virtual_gateway
+  loopbacks = var.loopbacks
 }
