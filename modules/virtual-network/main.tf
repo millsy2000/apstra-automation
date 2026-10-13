@@ -1,3 +1,17 @@
+data "apstra_datacenter_systems" "leaf_switches" {
+  blueprint_id = var.blueprint_id
+  filters = [
+    {
+     tag_ids = ["leaf"]
+   }
+  ]
+}
+
+data "apstra_datacenter_virtual_network_binding_constructor" "leaf_switches" {
+  blueprint_id = var.blueprint_id
+  switch_ids   = data.apstra_datacenter_systems.leaf_switches.ids
+}
+
 resource "apstra_datacenter_virtual_network" "vn" {
   blueprint_id                 = var.blueprint_id
   name                         = var.network_name
@@ -8,6 +22,7 @@ resource "apstra_datacenter_virtual_network" "vn" {
   ipv4_virtual_gateway_enabled = true
   ipv4_virtual_gateway         = var.virtual_gateway
   ipv4_subnet                  = var.subnet
+  bindings                     = data.apstra_datacenter_virtual_network_binding_constructor.leaf_switches.bindings
 }
 
 # 1. Define the Connectivity Template using the Interface-type block
