@@ -2,7 +2,7 @@ variable "blueprint_id" {
   type = string
 }
 
-variable "tenant_name" {
+variable "network_name" {
   type = string
 }
 

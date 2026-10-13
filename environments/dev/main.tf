@@ -38,7 +38,6 @@ module "tenant" {
 }
 
 
-
 #module "finance" {
 #  source          = "../../modules/tenant"
 #  blueprint_id    = module.blueprint.blueprint_id

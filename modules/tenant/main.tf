@@ -13,7 +13,7 @@ module "app_network" {
   source = "../virtual-network"
   blueprint_id = var.blueprint_id
   routing_zone_id = module.vrf.routing_zone_id
-  tenant_name = each.value.name
+  network_name = each.value.name
   vlan_id = each.value.app_vlan
   vni = each.value.app_vni
   subnet = each.value.subnet
