@@ -25,20 +25,6 @@ resource "apstra_datacenter_virtual_network" "vn" {
   bindings                     = data.apstra_datacenter_virtual_network_binding_constructor.leaf_switches.bindings
 }
 
-resource "apstra_ipv4_pool" "leaf_loopback_ips" {
-  name = "${var.tenant_name}-ipv4-pool"
-  subnets = [
-    { network = var.loopbacks },
-  ]
-}
-
-resource "apstra_datacenter_resource_pool_allocation" "leaf_looopback_allocation" {
-  blueprint_id    = var.blueprint_id
-  routing_zone_id = var.routing_zone_id
-  pool_ids        = [apstra_ipv4_pool.leaf_loopback_ips.id]
-  role            = "leaf_loopback_ips"
-}
-
 # 1. Define the Connectivity Template using the Interface-type block
 resource "apstra_datacenter_connectivity_template_interface" "connectivity_template" {
   blueprint_id = var.blueprint_id

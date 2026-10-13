@@ -7,3 +7,7 @@ variable "vrf_name" {
   description = "Name of VRF"
   type        = string
 }
+
+variable "loopbacks" {
+  type = string
+}

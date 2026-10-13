@@ -29,7 +29,3 @@ variable "subnet" {
 variable "virtual_gateway" {
   type = string
 }
-
-variable "loopbacks" {
-  type = string
-}

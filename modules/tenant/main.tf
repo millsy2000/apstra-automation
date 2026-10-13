@@ -2,6 +2,7 @@ module "vrf" {
   source       = "../vrf"
   blueprint_id = var.blueprint_id
   vrf_name     = var.tenant_name
+  loopbacks = var.loopbacks
 }
 
 module "app_network" {
@@ -19,5 +20,4 @@ module "app_network" {
   vni = each.value.app_vni
   subnet = each.value.subnet
   virtual_gateway = each.value.virtual_gateway
-  loopbacks = var.loopbacks
 }
