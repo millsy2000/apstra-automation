@@ -52,6 +52,10 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
 
+      - name: Validate Apstra Blueprint
+        run: |
+           python ../../scripts/apstra_blueprint_build_errors_validation.py
+
       - name: Wait for Apstra Analysis
         run: sleep 120
         
