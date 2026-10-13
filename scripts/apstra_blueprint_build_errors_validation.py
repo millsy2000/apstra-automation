@@ -8,7 +8,7 @@ import requests
 
 APSTRA_URL = os.environ.get("APSTRA_URL")
 APSTRA_USERNAME = os.environ.get("APSTRA_USER")
-APSTRA_PASSWORD = os.environ.get("APSTRA_PASSWORD")
+APSTRA_PASSWORD = os.environ.get("APSTRA_PASS")
 
 VERIFY_SSL = False
 
