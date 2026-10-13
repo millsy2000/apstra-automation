@@ -9,3 +9,7 @@ variable "tenant_name" {
 variable "networks" {
   type = list
 }
+
+variable "loopbacks" {
+  type = string
+}
