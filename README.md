@@ -1,4 +1,4 @@
-<img width="198" height="2268" alt="image" src="https://github.com/user-attachments/assets/32624b7e-d5df-43ca-8a57-ff0ddff82e2d" /># Apstra Automation
+# Apstra Automation
 
 Infrastructure-as-Code solution for deploying and validating Juniper Apstra blueprints, routing zones (VRFs), virtual networks, and supporting resources using Terraform, GitHub Actions, and Terraform Cloud.
 
