@@ -87,9 +87,6 @@ This project aims to demonstrate:
 ├── policies/
 │   └── network-standards.yaml
 │
-├── tenants/
-│   └── tenants.yaml
-│
 └── README.md
 ```
 
@@ -398,8 +395,8 @@ apstra-prod
 
 ```text
 APSTRA_URL
-APSTRA_USERNAME
-APSTRA_PASSWORD
+APSTRA_USER
+APSTRA_PASS
 TF_API_TOKEN
 ```
 
@@ -407,8 +404,8 @@ TF_API_TOKEN
 
 ```text
 APSTRA_URL
-APSTRA_USERNAME
-APSTRA_PASSWORD
+APSTRA_USER
+APSTRA_PASS
 TF_API_TOKEN
 ```
 
@@ -421,7 +418,7 @@ TF_API_TOKEN
 Update:
 
 ```text
-tenants/tenants.yaml
+environments/'environment'/tenants.yaml
 ```
 
 Add:
